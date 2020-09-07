@@ -7,7 +7,7 @@ Otra modificación para case 1 fue agregar cin.ignore ya que de no agregarlo, su
 En case 1, también se agrego una salida en pantalla que determina la cantidad de archivos que se encuentran almacenados.
 
 *En los case 2,3, 4, se agrego IF-ELSE para mostrar en pantalla la advertencia de que no hay archivos guardados.
-Además en case 3, se agregó un if-else extra en caso de que el tamaño del archivo requerido sea más grande del archivo de mayor tamaño.*/
+Además en case 3, se agregó un if-else extra en caso de que el tamaño del archivo requerido sea más grande del archivo de mayor tamaño almacenado.*/
 
 //LAS ACLARACIONES SE DESCRIBEN EN LAS LINEAS CORRESPONDIENTES
 #include <iostream>
