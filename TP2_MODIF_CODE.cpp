@@ -6,7 +6,7 @@ using namespace std;
 
 struct FileData
 {
-    string name;
+    char name [40];
     long size;
 };
 
@@ -25,10 +25,10 @@ int main()
     do
     {
         cout << endl;
-        cout << "Escoja una opción:" << endl;
-        cout << "1.- Añadir datos de un nuevo archivo" << endl;
+        cout << "Escoja una opciÃ³n:" << endl;
+        cout << "1.- AÃ±adir datos de un nuevo archivo" << endl;
         cout << "2.- Mostrar los nombres de todos los archivos" << endl;
-        cout << "3.- Mostrar archivos que sean de mas de un cierto tamaño" << endl;
+        cout << "3.- Mostrar archivos que sean de mas de un cierto tamaÃ±o" << endl;
         cout << "4.- Ver datos de un archivo" << endl;
         cout << "5.- Salir" << endl;
 
@@ -39,17 +39,17 @@ int main()
             case 1:
                 if (numberOfFiles < 1000)
                 {
-                    cout << "Introduce el tamaño en KB: ";
+                    cout << "Introduce el tamaÃ±o en KB: ";
                     cin >> files[numberOfFiles].size;
                     cin.ignore(); // PARA LIMPIAR BUFFER Y NO HAYA INCONVENIENTES
                     cout << "Introduce el nombre del archivo: "<< endl;
-                    getline(cin,files[numberOfFiles].name);
+                    cin.getline(files[numberOfFiles].name, 40, '\n');
                     numberOfFiles++;
                     cout<< "Espacio Utilizado : "<< numberOfFiles << "/1000";
                     //MUESTRA LA CANTIDAD DE ARCHIVOS HASTA EL MOMENTO
                 }
                 else
-                    {cout << "¡Máximo de archivos alcanzado (1000)!" << endl;}
+                    {cout << "Â¡MÃ¡ximo de archivos alcanzado (1000)!" << endl;}
                 break;
 
             case 2:
@@ -57,7 +57,7 @@ int main()
                 {
                 for (i=0; i<numberOfFiles; i++)
                     cout << "Nombre: " << files[i].name
-                        << "; Tamaño: " << files[i].size
+                        << "; TamaÃ±o: " << files[i].size
                         << "Kb" << endl;
                 }
                 else
@@ -67,17 +67,17 @@ int main()
             case 3:
                 if (numberOfFiles != 0) //IDEM CASE2
                 {
-                    cout << "¿A partir de que tamaño quieres que te muestre? ";
+                    cout << "Â¿A partir de que tamaÃ±o quieres que te muestre? ";
                     cin >> tempNumber;
                     for (i=0; i<numberOfFiles; i++)
                         if (files[i].size >= tempNumber)
                           {
                             cout << "Nombre: " << files[i].name
-                                << "; Tamaño: " << files[i].size << " Kb" << endl;
+                                << "; TamaÃ±o: " << files[i].size << " Kb" << endl;
                           }
                           else
-                          {cout << "NO EXISTE ARCHIVO DE SEMEJANTE TAMAÑO";}
-                          //EN CASO DE QUE SE PASE DEL TAMAÑO DEL ARCHIVO MAS GRANDE
+                          {cout << "NO EXISTE ARCHIVO DE SEMEJANTE TAMAÃ‘O";}
+                          //EN CASO DE QUE SE PASE DEL TAMAÃ‘O DEL ARCHIVO MAS GRANDE
                 }
                 else
                 { cout << "NO EXISTE ARCHIVO ALMACENADO";}
@@ -87,12 +87,12 @@ int main()
                 cin.ignore();//LIMPIA EL BAUFFER
                 if (numberOfFiles != 0)//IDEM CASE 2
                 {
-                    cout << "¿De qué archivo quieres ver todos los datos?"<< endl;
+                    cout << "Â¿De quÃ© archivo quieres ver todos los datos?"<< endl;
                     getline(cin,tempText);
                         for (i=0; i<numberOfFiles; i++)
                             if (files[i].name == tempText)
                                 cout << "Nombre: " << files[i].name
-                                    << "; Tamaño: " << files[i].size << " Kb" << endl;
+                                    << "; TamaÃ±o: " << files[i].size << " Kb" << endl;
                 }
                 else
                 {cout << "NO EXISTEN ARCHIVOS ALMACENADOS";}
@@ -102,11 +102,11 @@ int main()
                 cout << "Fin del programa" << endl;
                 break;
 
-            default: // Otra opción: no válida
-                cout << "¡Opción desconocida!" << endl;
+            default: // Otra opciÃ³n: no vÃ¡lida
+                cout << "Â¡OpciÃ³n desconocida!" << endl;
                 break;
         }
-    } while (option != 5);// Si la opción es 5, terminamos
+    } while (option != 5);// Si la opciÃ³n es 5, terminamos
 
     return 0;
 }
