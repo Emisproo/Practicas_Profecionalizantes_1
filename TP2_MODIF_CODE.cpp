@@ -1,4 +1,14 @@
-//MODIFICACIONES DEL CODIGO DE EJEMPLO DE MENU
+//PT2:MODIFICACIONES DEL CODIGO DE EJEMPLO DE MENU
+/*La modificación más significativa fue la de determinar un máximo de 40 caracteres para el nombre del archivo a guardar: como cin no guarda cadenas con espacios,
+y la cantidad de caracteres debía determinarse en 40, cambié el tipo de la variable name, de struct FileData, de String a Char. De esta manera utilizando 
+la funsión cin.getline() se puede almacenar con tales especificaciones (getline() funciona para strings). 
+Esta modificación se encuentra en el case 1 del Switch, en la línea 56.
+Otra modificación para case 1 fue agregar cin.ignore ya que de no agregarlo, surgen inconvenientes. En case 4 también aparece por el mismo motivo.
+En case 1, también se agrego una salida en pantalla que determina la cantidad de archivos que se encuentran almacenados.
+
+*En los case 2,3, 4, se agrego IF-ELSE para mostrar en pantalla la advertencia de que no hay archivos guardados.
+Además en case 3, se agregó un if-else extra en caso de que el tamaño del archivo requerido sea más grande del archivo de mayor tamaño.*/
+
 //LAS ACLARACIONES SE DESCRIBEN EN LAS LINEAS CORRESPONDIENTES
 #include <iostream>
 #include <string>
@@ -6,7 +16,7 @@ using namespace std;
 
 struct FileData
 {
-    char name [40];
+    char name [40]; //CAMBIO DE STRING A CHAR CON ARREGLO
     long size;
 };
 
@@ -43,7 +53,7 @@ int main()
                     cin >> files[numberOfFiles].size;
                     cin.ignore(); // PARA LIMPIAR BUFFER Y NO HAYA INCONVENIENTES
                     cout << "Introduce el nombre del archivo: "<< endl;
-                    cin.getline(files[numberOfFiles].name, 40, '\n');
+                    cin.getline(files[numberOfFiles].name, 40, '\n'); //FUNSION PARA GUARDAR NOMBRE DE ARCHIVO
                     numberOfFiles++;
                     cout<< "Espacio Utilizado : "<< numberOfFiles << "/1000";
                     //MUESTRA LA CANTIDAD DE ARCHIVOS HASTA EL MOMENTO
@@ -70,7 +80,7 @@ int main()
                     cout << "¿A partir de que tamaño quieres que te muestre? ";
                     cin >> tempNumber;
                     for (i=0; i<numberOfFiles; i++)
-                        if (files[i].size >= tempNumber)
+                        if (files[i].size >= tempNumber) //IF EXTRA
                           {
                             cout << "Nombre: " << files[i].name
                                 << "; Tamaño: " << files[i].size << " Kb" << endl;
@@ -85,7 +95,7 @@ int main()
 
             case 4:
                 cin.ignore();//LIMPIA EL BAUFFER
-                if (numberOfFiles != 0)//IDEM CASE 2
+                if (numberOfFiles != 0)     //IDEM CASE 2
                 {
                     cout << "¿De qué archivo quieres ver todos los datos?"<< endl;
                     getline(cin,tempText);
