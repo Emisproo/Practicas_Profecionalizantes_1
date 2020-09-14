@@ -1,3 +1,9 @@
+//Las fuentes del trabajo fueron 
+//https://stackoverrun.com/es/q/7782155#:~:text=ios%3A%3Ain%20permite%20la,de%20escritura)%20a%20una%20secuencia.&text=de%20std%3A%3Afstream%20permite%20tanto%20entrada%20y%20salida%20para%20la%20corriente.
+//https://www.todoexpertos.com/preguntas/8w89beuyapeow7xw/que-significa-std-ios-app-en-c
+//http://www.cplusplus.com/reference/fstream/ofstream/open/
+//https://www.youtube.com/watch?v=tPQoCa4pM0c&list=PLN-xVaranH31FDPQMDNWddfUwiD7BaQIm
+//Y trabajos de AyED.
 #include <iostream>
 #include <string>
 #include <fstream>
